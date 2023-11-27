@@ -8,4 +8,25 @@ public class ContaPoupanca extends Conta {
         super(id, nome, saldo, imposto);
     }
 
+    @Override
+    public boolean sacar(double saldo) {
+        if (getSaldo() >= saldo+getImposto()) {
+            System.out.println("Aprovado seu saque!");
+            return super.sacar(saldo+getImposto());
+        }
+        System.out.println("Negado seu saque!");
+        return  false;
+    }
+
+    @Override
+    public boolean depositar(double saldo) {
+        System.out.printf("Valor retido de %.2f\n", this.getImposto());
+        return super.depositar(saldo - getImposto());
+    }
+
+    @Override
+    public void tranferir(double saldo, Conta conta) {
+        super.tranferir(saldo, conta);
+    }
+
 }
