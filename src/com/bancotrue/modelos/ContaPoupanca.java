@@ -2,7 +2,7 @@ package com.bancotrue.modelos;
 
 import com.bancotrue.entities.Conta;
 
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta implements Comparable<ContaPoupanca>{
 
     public ContaPoupanca(Long id, String nome, double saldo, double imposto) {
         super(id, nome, saldo, imposto);
@@ -29,4 +29,8 @@ public class ContaPoupanca extends Conta {
         super.tranferir(saldo, conta);
     }
 
+    @Override
+    public int compareTo(ContaPoupanca contaPoupanca) {
+        return this.getNome().compareTo(contaPoupanca.getNome()) ;
+    }
 }
