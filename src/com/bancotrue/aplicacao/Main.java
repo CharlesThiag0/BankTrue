@@ -21,7 +21,7 @@ public class Main {
         System.out.println("Sem organização");
         listaPoupanca.forEach(x -> System.out.println(x.getNome()));
 
-        //organizar lista
+        //organizar lista por ordem alfabetica
         Collections.sort(listaPoupanca);
         System.out.println("Com organização");
         listaPoupanca.forEach(x -> System.out.println(x.getNome()));
@@ -36,6 +36,7 @@ public class Main {
         listaCorrente.add(corrente1);
         listaCorrente.add(corrente2);
 
+        //ogarnizar lista por ordem pelo id
         System.out.println("Sem organização");
         listaCorrente.forEach(x -> System.out.println(x.getNome()));
 
