@@ -40,4 +40,28 @@ public class Conta {
     public void setImposto(double imposto) {
         this.imposto = imposto;
     }
+
+    public boolean depositar (double saldo) {
+        if (saldo > 0) {
+            this.saldo += saldo;
+            return true;
+        } else {
+            System.out.println("Valor não aceito");
+            return false;
+        }
+    }
+
+    public boolean sacar (double saldo) {
+        if (saldo > 0) {
+            this.saldo -= saldo;
+            return true;
+        }
+        return false;
+    }
+
+    public void tranferir (double saldo, Conta conta) {
+        sacar(saldo);
+        conta.depositar(saldo);
+    }
+
 }
