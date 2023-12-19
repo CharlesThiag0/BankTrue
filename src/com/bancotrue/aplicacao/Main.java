@@ -44,5 +44,7 @@ public class Main {
         listaCorrente.sort(Comparator.comparing(Conta::getId));
         listaCorrente.forEach(x -> System.out.println(x.getNome()));
 
+        corrente0.depositar(1000);
+
     }
 }

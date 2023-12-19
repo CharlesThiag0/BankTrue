@@ -12,15 +12,18 @@ public class ContaPoupanca extends Conta implements Comparable<ContaPoupanca>{
     public boolean sacar(double saldo) {
         if (getSaldo() >= saldo+getImposto()) {
             System.out.println("Aprovado seu saque!");
+            customHora();
             return super.sacar(saldo+getImposto());
         }
         System.out.println("Negado seu saque!");
+        customHora();
         return  false;
     }
 
     @Override
     public boolean depositar(double saldo) {
         System.out.printf("Valor retido de %.2f\n", this.getImposto());
+        customHora();
         return super.depositar(saldo - getImposto());
     }
 

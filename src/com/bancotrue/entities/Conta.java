@@ -1,5 +1,8 @@
 package com.bancotrue.entities;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Conta {
         private Long id;
         private String nome;
@@ -62,6 +65,11 @@ public class Conta {
     public void tranferir (double saldo, Conta conta) {
         sacar(saldo);
         conta.depositar(saldo);
+    }
+
+    public void customHora (){
+        System.out.printf("Horario da operação: %s\n", LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
     }
 
 }
