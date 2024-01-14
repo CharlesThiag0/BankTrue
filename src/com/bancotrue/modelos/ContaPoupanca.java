@@ -2,22 +2,17 @@ package com.bancotrue.modelos;
 
 import com.bancotrue.entities.Conta;
 
-public class ContaPoupanca extends Conta implements Comparable<ContaPoupanca>{
+public class ContaPoupanca extends Conta implements Comparable<ContaPoupanca> {
 
     public ContaPoupanca(Long id, String nome, double saldo, double imposto) {
         super(id, nome, saldo, imposto);
     }
 
     @Override
-    public boolean sacar(double saldo) {
-        if (getSaldo() >= saldo+getImposto()) {
-            System.out.println("Aprovado seu saque!");
-            customHora();
-            return super.sacar(saldo+getImposto());
-        }
-        System.out.println("Negado seu saque!");
+    public void sacar(double saldo) {
+        super.sacar(saldo + getImposto());
+        System.out.println("Aprovado seu saque!");
         customHora();
-        return  false;
     }
 
     @Override
@@ -34,6 +29,6 @@ public class ContaPoupanca extends Conta implements Comparable<ContaPoupanca>{
 
     @Override
     public int compareTo(ContaPoupanca contaPoupanca) {
-        return this.getNome().compareTo(contaPoupanca.getNome()) ;
+        return this.getNome().compareTo(contaPoupanca.getNome());
     }
 }

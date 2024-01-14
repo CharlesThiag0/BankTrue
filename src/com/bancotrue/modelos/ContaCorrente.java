@@ -15,10 +15,10 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
-    public boolean sacar(double saldo) {
+    public void sacar(double saldo) {
         System.out.printf("Saque efetuado %s!", this.getNome());
         customHora();
-        return super.sacar(saldo);
+        super.sacar(saldo);
     }
 
     @Override
