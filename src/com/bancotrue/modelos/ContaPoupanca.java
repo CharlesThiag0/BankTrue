@@ -1,6 +1,7 @@
 package com.bancotrue.modelos;
 
 import com.bancotrue.entities.Conta;
+import com.bancotrue.exceptionsUnchecked.SacaException;
 
 public class ContaPoupanca extends Conta implements Comparable<ContaPoupanca> {
 
@@ -9,7 +10,7 @@ public class ContaPoupanca extends Conta implements Comparable<ContaPoupanca> {
     }
 
     @Override
-    public void sacar(double saldo) {
+    public void sacar(double saldo) throws SacaException {
         super.sacar(saldo + getImposto());
         System.out.println("Aprovado seu saque!");
         customHora();
@@ -23,7 +24,7 @@ public class ContaPoupanca extends Conta implements Comparable<ContaPoupanca> {
     }
 
     @Override
-    public void tranferir(double saldo, Conta conta) {
+    public void tranferir(double saldo, Conta conta) throws SacaException {
         super.tranferir(saldo, conta);
     }
 

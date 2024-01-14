@@ -1,6 +1,6 @@
 package com.bancotrue.entities;
 
-import com.bancotrue.exceptionsUnchecked.SaldoInsuficienteException;
+import com.bancotrue.exceptionsUnchecked.SacaException;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -56,16 +56,16 @@ public class Conta {
         }
     }
 
-    public void sacar (double saldo) {
+    public void sacar (double saldo) throws SacaException {
         if (this.saldo < saldo) {
-           throw new SaldoInsuficienteException(String.format
-                   ("Valor na conta %.2f, valor pedido para retirada %.2f", this.saldo, saldo));
+           throw new SacaException(String.format
+                   ("Saldo: %.2f, Valor: %.2f", this.saldo, saldo));
         }
 
         this.saldo -= saldo;
     }
 
-    public void tranferir (double saldo, Conta conta) {
+    public void tranferir (double saldo, Conta conta) throws SacaException {
         sacar(saldo);
         conta.depositar(saldo);
     }
